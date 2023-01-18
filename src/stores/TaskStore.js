@@ -8,4 +8,9 @@ export const useTaskStore = defineStore('taskStore', {
         ],
         name: "Md Nuruzzaman himel",
     }),
+    getters:{
+        favs(){
+            return this.tasks.filter( (task) => task.isFav );
+        }
+    }
 })
