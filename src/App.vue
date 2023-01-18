@@ -1,26 +1,49 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+      <main>
+
+        <!-- .header -->
+        <header>
+          <img src="../public/pinia.svg" alt="pinia image">
+          <h2>{{ taskStore.name }}</h2>
+        </header>
+
+        <!-- task list.. -->
+        <div class="task-list">
+          <div v-for="task in taskStore.tasks" :key="task.id">
+            <!-- <p>{{ task.title }}</p> -->
+            <task-details :task="task" />
+          </div>
+        </div>
+
+      </main>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  import {useTaskStore} from '@/stores/TaskStore.js'
+
+  import TaskDetails from './components/TaskDetails.vue'
+
+  export default {
+    setup(){
+      let taskStore = useTaskStore();
+
+      return {taskStore};
+    },
+    name:'App',
+    data(){
+      return {
+
+      }
+    },
+    components:{
+      TaskDetails
+    }
   }
-}
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style  scoped>
+
 </style>
