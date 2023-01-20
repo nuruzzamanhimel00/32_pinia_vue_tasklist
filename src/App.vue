@@ -8,13 +8,17 @@
           <h2>{{ taskStore.name }}</h2>
         </header>
 
+         <!-- loading -->
+        <div class="loading" v-if="taskStore.loading">Loading tasks...</div>
+
+
          <!-- new task form -->
         <div class="new-task-form">
           <task-form />
         </div>
         <nav class="text-center my-4">
-          <button class="btn btn-success mr-2" @click.prevent="filter = 'all' ">All tasks</button>
-          <button class="btn btn-danger" @click.prevent="filter = 'favs' ">Favs tasks</button>
+          <button class="btn btn-success mr-2" @click.prevent="filter = 'all' ">All tasks ({{ taskStore.totalCount }}) </button>
+          <button class="btn btn-danger" @click.prevent="filter = 'favs' ">Favs tasks({{ taskStore.favCount }})</button>
         </nav>
         <!-- task list.. -->
         <div class="task-list" v-if="filter == 'all' ">
@@ -47,6 +51,9 @@
   export default {
     setup(){
       let taskStore = useTaskStore();
+
+        // fetch tasks
+      taskStore.getTasks()
 
       const filter = ref('all');
 
