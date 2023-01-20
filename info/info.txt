@@ -1,4 +1,4 @@
 tut-8
-npm install -g json-server
+->npm install -g json-server
 run json file:-
-json-server -w ./data/db.json
+->json-server -w ./data/db.json

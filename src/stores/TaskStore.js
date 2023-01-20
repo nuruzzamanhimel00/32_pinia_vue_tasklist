@@ -32,25 +32,59 @@ export const useTaskStore = defineStore('taskStore', {
             // console.log(data);
         }
         ,
-        addTask(task){
+        async addTask(task){
             this.loading = true;
-            setTimeout(()=>{
+
+            const res = await fetch('http://localhost:3000/tasks', {
+                method: 'POST',
+                body: JSON.stringify(task),
+                headers: {'Content-Type': 'application/json'}
+            });
+
+            if (res.error) {
+                console.log(res.error)
+              }else{
                 this.tasks.unshift(task);
                 this.loading = false;
-            },1000)
+              }
+          
             
         },
-        deleteTask(id){
+        async deleteTask(id){
             this.loading = true;
-            setTimeout(()=>{
+
+            const res = await fetch('http://localhost:3000/tasks/'+id, {
+                method: 'DELETE',
+                headers: {'Content-Type': 'application/json'}
+            });
+
+            if (res.error) {
+                console.log(res.error)
+              }else{
                 this.tasks = this.tasks.filter( (task) => task.id != id );
                 this.loading = false;
-            },1000)
+              }
+
+        
            
         },
-        toggleFavorite(id){
+        async toggleFavorite(id){
+
+            
             let findTask = this.tasks.find( (task) => task.id === id );
-            findTask.isFav =!findTask.isFav;
+         
+            const res = await fetch('http://localhost:3000/tasks/'+id, {
+                method: 'PATCH',
+                body: JSON.stringify({isFav:!findTask.isFav}),
+                headers: {'Content-Type': 'application/json'}
+            });
+
+            if (res.error) {
+                console.log(res.error)
+              }else{
+                findTask.isFav =!findTask.isFav;
+              }
+
            
         }
     }
