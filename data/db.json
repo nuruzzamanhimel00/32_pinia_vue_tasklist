@@ -17,17 +17,22 @@
     },
     {
       "title": "eat some pinapples",
-      "isFav": false,
+      "isFav": true,
       "id": 4
     },
     {
       "id": 165790,
       "title": "aaa",
-      "isFav": false
+      "isFav": true
     },
     {
       "id": 115285,
       "title": "test",
+      "isFav": true
+    },
+    {
+      "id": 920637,
+      "title": "hellp",
       "isFav": false
     }
   ]
