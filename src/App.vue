@@ -18,7 +18,8 @@
         </div>
         <nav class="text-center my-4">
           <button class="btn btn-success mr-2" @click.prevent="filter = 'all' ">All tasks ({{ taskStore.totalCount }}) </button>
-          <button class="btn btn-danger" @click.prevent="filter = 'favs' ">Favs tasks({{ taskStore.favCount }})</button>
+          <button class="btn btn-danger mr-2" @click.prevent="filter = 'favs' ">Favs tasks({{ taskStore.favCount }})</button>
+          <button @click.prevent="taskStore.$reset()" class="btn btn-warning" >Reset</button>
         </nav>
         <!-- task list.. -->
         <div class="task-list" v-if="filter == 'all' ">

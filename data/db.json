@@ -3,12 +3,12 @@
     {
       "id": 1,
       "title": "play gloomhaven",
-      "isFav": true
+      "isFav": false
     },
     {
       "id": 2,
       "title": "mow the lawn",
-      "isFav": true
+      "isFav": false
     },
     {
       "title": "become an eldern lord",
@@ -17,18 +17,18 @@
     },
     {
       "title": "eat some pinapples",
-      "isFav": true,
+      "isFav": false,
       "id": 4
     },
     {
       "id": 165790,
       "title": "aaa",
-      "isFav": true
+      "isFav": false
     },
     {
       "id": 115285,
       "title": "test",
-      "isFav": true
+      "isFav": false
     }
   ]
 }
