@@ -7,6 +7,11 @@
           <img src="../public/pinia.svg" alt="pinia image">
           <h2>{{ taskStore.name }}</h2>
         </header>
+
+         <!-- new task form -->
+        <div class="new-task-form">
+          <task-form />
+        </div>
         <nav class="text-center my-4">
           <button class="btn btn-success mr-2" @click.prevent="filter = 'all' ">All tasks</button>
           <button class="btn btn-danger" @click.prevent="filter = 'favs' ">Favs tasks</button>
@@ -36,6 +41,7 @@
   import {useTaskStore} from '@/stores/TaskStore.js'
 
   import TaskDetails from './components/TaskDetails.vue'
+  import TaskForm from './components/TaskForm.vue'
   import { ref } from 'vue';
 
   export default {
@@ -47,13 +53,9 @@
       return {taskStore, filter};
     },
     name:'App',
-    data(){
-      return {
-
-      }
-    },
     components:{
-      TaskDetails
+      TaskDetails,
+      TaskForm,
     }
   }
 </script>
