@@ -2,3 +2,9 @@ tut-8
 ->npm install -g json-server
 run json file:-
 ->json-server -w ./data/db.json
+
+
+github youtube (net ninja):
+https://github.com/iamshaunjp/Pinia-with-Vue-3
+
+netninja youtube url: https://www.youtube.com/watch?v=u0B9dysw29A&list=PL4cUxeGkcC9hp28dYyYBy3xoOdoeNw-hD&ab_channel=TheNetNinja
